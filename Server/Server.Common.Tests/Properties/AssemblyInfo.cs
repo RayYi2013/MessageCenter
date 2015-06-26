@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Server.Common.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TP")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Server.Common.Tests")]
-[assembly: AssemblyCopyright("Copyright © TP 2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("166d1b4b-e144-4824-8d21-b46690795610")]
+[assembly: Guid("d9833978-6310-4f71-8dde-d7dca1ec00ea")]
 
 // Version information for an assembly consists of the following four values:
 //

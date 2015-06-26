@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Client.Main.MessageServiceReference;
 
 namespace Client.Main
 {
@@ -23,6 +24,18 @@ namespace Client.Main
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SendMessage sm = new SendMessage();
+            sm.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ViewMessages vm = new ViewMessages();
+            vm.Show();
         }
     }
 }

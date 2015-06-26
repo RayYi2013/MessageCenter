@@ -1,5 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
+using Ninject;
+using Ninject.Extensions.Wcf;
+using Server.Service;
 
 namespace Server.Host
 {
@@ -7,12 +10,22 @@ namespace Server.Host
     {
         static void Main(string[] args)
         {
-            using (ServiceHost host = new ServiceHost(typeof(Service.MessageService)))
+            var kernel = new StandardKernel(new ServiceModule());
+            var host = kernel.Get<ServiceHost>();
+            try
             {
                 host.Open();
-                Console.WriteLine("Host started @ " + DateTime.Now.ToString());
+                Console.WriteLine("Host started @ " + DateTime.Now);
                 Console.ReadLine();
             }
+            finally
+            {
+                host.Close();
+            }
         }
+
+        
+
+        
     }
 }

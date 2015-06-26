@@ -1,28 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using Ninject;
+using Server.Data.Entities;
+using Server.Common;
 
 namespace Server.Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "MessageService" in both code and config file together.
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class MessageService : IMessageService
     {
+        private IMessageRepo _repo;
 
-        public void AddMessage(string Text)
+        public MessageService(IMessageRepo repo)
         {
-            
+            _repo = repo;
         }
 
-        public List<Data.Entities.Message> GetList()
+        public void AddMessage(string text)
         {
-            List<Data.Entities.Message> list = new List<Data.Entities.Message>() {
-                new Data.Entities.Message(){ ID=Guid.NewGuid(), CreatedAt = DateTime.Now, Text="test"},
-                new Data.Entities.Message(){ ID=Guid.NewGuid(), CreatedAt = DateTime.Now, Text="test"}
-            };
-            return list;
+            _repo.AddMessage(text);
+        }
+
+        public List<Message> GetMessages()
+        {
+            return _repo.GetMessages();
 
         }
     }

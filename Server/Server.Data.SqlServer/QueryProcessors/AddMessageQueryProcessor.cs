@@ -8,7 +8,11 @@ namespace Server.Data.SqlServer.QueryProcessors
     {
         public void AddMessage(Message msg)
         {
-            throw new NotImplementedException();
+            using (var ctx = new Context())
+            {
+                ctx.Messages.Add(msg);
+                ctx.SaveChanges();
+            } 
         }
     }
 }

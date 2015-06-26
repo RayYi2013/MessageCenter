@@ -12,9 +12,9 @@ namespace Server.Service
     public interface IMessageService
     {
         [OperationContract]
-        void AddMessage(string Text);
+        void AddMessage(string text);
 
         [OperationContract]
-        List<Data.Entities.Message> GetList();
+        List<Data.Entities.Message> GetMessages();
     }
 }

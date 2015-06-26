@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -48,8 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Server.Common\Server.Common.csproj">
+      <Project>{61c0dd53-5733-43e8-adf2-bb5f981fa34a}</Project>
+      <Name>Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server.Data.SqlServer\Server.Data.SqlServer.csproj">
+      <Project>{6bc6b413-9399-4d9e-a4a0-59f696b854f4}</Project>
+      <Name>Server.Data.SqlServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Server.Data\Server.Data.csproj">
       <Project>{3b324ffc-cda3-4842-89c0-047f515b7812}</Project>
       <Name>Server.Data</Name>
