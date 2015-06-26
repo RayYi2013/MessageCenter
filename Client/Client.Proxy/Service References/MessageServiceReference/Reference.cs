@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Client.Main.MessageServiceReference {
+namespace Client.Proxy.MessageServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -101,19 +101,19 @@ namespace Client.Main.MessageServiceReference {
         System.Threading.Tasks.Task AddMessageAsync(string text);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetMessages", ReplyAction="http://tempuri.org/IMessageService/GetMessagesResponse")]
-        Client.Main.MessageServiceReference.Message[] GetMessages();
+        Client.Proxy.MessageServiceReference.Message[] GetMessages();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetMessages", ReplyAction="http://tempuri.org/IMessageService/GetMessagesResponse")]
-        System.Threading.Tasks.Task<Client.Main.MessageServiceReference.Message[]> GetMessagesAsync();
+        System.Threading.Tasks.Task<Client.Proxy.MessageServiceReference.Message[]> GetMessagesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMessageServiceChannel : Client.Main.MessageServiceReference.IMessageService, System.ServiceModel.IClientChannel {
+    public interface IMessageServiceChannel : Client.Proxy.MessageServiceReference.IMessageService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MessageServiceClient : System.ServiceModel.ClientBase<Client.Main.MessageServiceReference.IMessageService>, Client.Main.MessageServiceReference.IMessageService {
+    public partial class MessageServiceClient : System.ServiceModel.ClientBase<Client.Proxy.MessageServiceReference.IMessageService>, Client.Proxy.MessageServiceReference.IMessageService {
         
         public MessageServiceClient() {
         }
@@ -142,11 +142,11 @@ namespace Client.Main.MessageServiceReference {
             return base.Channel.AddMessageAsync(text);
         }
         
-        public Client.Main.MessageServiceReference.Message[] GetMessages() {
+        public Client.Proxy.MessageServiceReference.Message[] GetMessages() {
             return base.Channel.GetMessages();
         }
         
-        public System.Threading.Tasks.Task<Client.Main.MessageServiceReference.Message[]> GetMessagesAsync() {
+        public System.Threading.Tasks.Task<Client.Proxy.MessageServiceReference.Message[]> GetMessagesAsync() {
             return base.Channel.GetMessagesAsync();
         }
     }

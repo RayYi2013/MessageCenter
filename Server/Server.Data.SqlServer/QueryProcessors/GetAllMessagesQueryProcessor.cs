@@ -12,7 +12,7 @@ namespace Server.Data.SqlServer.QueryProcessors
         {
             using (var ctx = new Context())
             {
-                return ctx.Messages.ToList();
+                return ctx.Messages.OrderByDescending(m => m.CreatedAt).ToList();
             } 
             //var list = new List<Message>
             //{

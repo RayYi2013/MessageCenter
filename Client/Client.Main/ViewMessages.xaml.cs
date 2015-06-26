@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Client.Main.MessageServiceReference;
+
+using Client.Common;
+using Client.Proxy;
+
 
 namespace Client.Main
 {
@@ -20,8 +12,6 @@ namespace Client.Main
     /// </summary>
     public partial class ViewMessages : Window
     {
-        public Message[] Data;
-
         public ViewMessages()
         {
             InitializeComponent();
@@ -36,10 +26,8 @@ namespace Client.Main
 
         private void showMessages()
         {
-            MessageServiceClient client = new MessageServiceClient();
-            Data = client.GetMessages();
-            var list = from m in Data
-                select new {Text = m.Text, CreatedAt = m.CreatedAt};
+            var client = Container.Instance.Get<IMessageService>();
+            var list = client.GetMessages();
             
             messageGrid.ItemsSource = list; 
         }

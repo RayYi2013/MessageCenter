@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Client.Main.MessageServiceReference;
+
+using Client.Common;
+using Client.Proxy;
+
 
 namespace Client.Main
 {
@@ -30,7 +26,7 @@ namespace Client.Main
             var msg = txtMessage.Text;
             if (!string.IsNullOrEmpty(msg))
             {
-                MessageServiceClient client = new MessageServiceClient();
+                var client = Container.Instance.Get<IMessageService>();
                 client.AddMessage(txtMessage.Text);
                 MessageBox.Show("message send.");
                 txtMessage.Text = "";
